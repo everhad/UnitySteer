@@ -342,8 +342,7 @@ namespace UnitySteer.Behaviors
                     if (distanceSquared <= (maxDistance * maxDistance))
                     {
                         // otherwise, test angular offset from forward axis
-                        var unitOffset = offset / Mathf.Sqrt(distanceSquared);
-                        var forwardness = Vector3.Dot(Transform.forward, unitOffset);
+                        var forwardness = Vector3.Dot(Transform.forward, offset.normalized);
                         result = forwardness > cosMaxAngle;
                     }
                 }
